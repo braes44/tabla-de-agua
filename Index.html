@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Datos de Muestreo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <section id="manual-entry-section">
+        <h2>Ingreso Manual de Datos</h2>
+        <form id="manualEntryForm">
+            <label for="fecha">Fecha de Muestreo:</label>
+            <input type="date" id="fecha" name="fecha" required>
+
+            <label for="persona">Persona que realiza el muestreo:</label>
+            <input type="text" id="persona" name="persona" required>
+
+            <label for="punto">Punto de Muestreo:</label>
+            <input type="text" id="punto" name="punto" required>
+
+            <label for="parametro">Parámetro:</label>
+            <select id="parametro" name="parametro" required>
+                <optgroup label="Físicoquímicos">
+                    <option value="TOC">TOC</option>
+                    <option value="pH">pH</option>
+                    <option value="Conductividad">Conductividad</option>
+                    <option value="Dureza">Dureza</option>
+                </optgroup>
+                <optgroup label="Microbiológicos">
+                    <option value="RTMA">Microbiología - Recuento Total de Microorganismos Aerobios</option>
+                    <option value="Coliformes">Microbiología - Coliformes Totales</option>
+                    <option value="E. coli">Microbiología - Escherichia coli</option>
+                    <option value="Pseudomonas aeruginosa">Microbiología - Pseudomonas aeruginosa</option>
+                         <option value="Endotoxinas">Microbiología - Endotoxinas</option>
+                </optgroup>
+            </select>
+
+            <label for="resultado">Resultado:</label>
+            <input type="number" step="any" id="resultado" name="resultado" required>
+
+            <label for="limiteSuperior">Límite Superior:</label>
+            <input type="number" step="any" id="limiteSuperior" name="limiteSuperior">
+
+          <label for="limiteInferior">Límite Inferior:</label>
+            <input type="number" step="any" id="limiteInferior" name="limiteInferior">
+
+            <button type="submit">Agregar Punto</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Importar Datos</h2>
+        <input type="file" id="csvFileInput" accept=".csv">
+        <button id="importCsvBtn">Importar CSV</button>
+    </section>
+
+    <section id="data-section" style="display: none;">
+        <h2>Datos Ingresados</h2>
+        <table id="dataTable" border="1">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Persona</th>
+                    <th>Punto</th>
+                    <th>Parámetro</th>
+                    <th>Resultado</th>
+                    <th>Límites</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <button id="exportCsvBtn">Exportar a CSV</button>
+
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
